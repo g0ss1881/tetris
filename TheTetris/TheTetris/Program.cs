@@ -10,7 +10,11 @@ namespace TheTetris
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Point p2 = new Point(3, 3, '■');
+            Point p1 = new Point(3, 3, '0');
+            Point p2 = new Point(4, 3, '0');
+            Point p3 = new Point(3, 4, '0');
+            Point p4 = new Point(4, 4, '0');
+
 
             Console.ReadLine();
         }
