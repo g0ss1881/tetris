@@ -10,20 +10,13 @@ namespace TheTetris
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            int x1 = 2, 
-                y1 = 3;
-
-            char c1 = '■';
-
-            Drow(x1, y1, c1);
+            Point p1 = new Point();
+            p1.x = 2;
+            p1.y = 3;
+            p1.c = '■';
+            p1.Draw();
 
             Console.ReadLine();
-        }
-
-        static void Drow(int x, int y, char c)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine(c);
         }
     }
 }
