@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace TheTetris
 {
@@ -10,10 +11,9 @@ namespace TheTetris
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Point p1 = new Point(3, 3, '0');
-            Point p2 = new Point(4, 3, '0');
-            Point p3 = new Point(3, 4, '0');
-            Point p4 = new Point(4, 4, '0');
+            Figure[] figure = new Figure[1];
+            figure[0] = new Figure_Q(2, 2, '0');
+            figure[0].Move(Movement.RIGHT);
 
 
             Console.ReadLine();

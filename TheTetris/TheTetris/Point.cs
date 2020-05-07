@@ -24,6 +24,20 @@ namespace TheTetris
             Draw();
         }
 
-        public Point() { }
+        public void Move(Movement dir)
+        {
+            switch (dir)
+            {
+                case Movement.LEFT:
+                    x -= 1;
+                    break;
+                case Movement.RIGHT:
+                    x += 1;
+                    break;
+                case Movement.DOWN:
+                    y += 1;
+                    break;
+            }
+        }
     }
 }
