@@ -14,6 +14,14 @@ namespace TheTetris
         {
             Console.SetCursorPosition(x, y);
             Console.WriteLine(c);
+            Console.SetCursorPosition(0, 0);
+        }
+
+        public Point(Point p)
+        {
+            x = p.x;
+            y = p.y;
+            c = p.c;
         }
 
         public Point (int a, int b, char sym)

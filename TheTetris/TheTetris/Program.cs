@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Security.Cryptography.X509Certificates;
+﻿using System;
 using System.Threading;
 
 namespace TheTetris
@@ -12,13 +10,13 @@ namespace TheTetris
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
-                    figure.Move(Movement.LEFT);
+                    figure.TryMove(Movement.LEFT);
                     break;
                 case ConsoleKey.RightArrow:
-                    figure.Move(Movement.RIGHT);
+                    figure.TryMove(Movement.RIGHT);
                     break;
                 case ConsoleKey.DownArrow:
-                    figure.Move(Movement.DOWN);
+                    figure.TryMove(Movement.DOWN);
                     break;
                     //case ConsoleKey.UpArrow:
                     //break;
@@ -27,10 +25,9 @@ namespace TheTetris
 
         static void Main(string[] args)
         {
-            Console.SetWindowSize(40, 30);
-            Console.SetBufferSize(40, 30);
+            Console.SetWindowSize(40, 31);
+            Console.SetBufferSize(40, 31);
 
-            
 
             Figure fig = new Figure_I(20, 0, '0');
 

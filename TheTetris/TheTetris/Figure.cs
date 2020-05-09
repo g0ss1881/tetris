@@ -7,7 +7,9 @@ namespace TheTetris
 {
     abstract class Figure
     {
-        public Point[] points = new Point[4];
+        const int LENGTH = 4;
+
+        public Point[] points = new Point[LENGTH];
 
         public void Draw()
         {
@@ -17,17 +19,62 @@ namespace TheTetris
             }
         }
 
-        public void Move(Movement dir)
+        internal void TryMove(Movement dir)
         {
             Hide();
 
-            foreach (Point p in points)
+            var clone = Clone();
+
+            Move(clone, dir);
+
+            if (VerifyPosition(clone))
+                points = clone;
+
+            Draw();
+        }
+
+        private bool VerifyPosition(Point[] pList)
+        {
+            foreach (var p in pList)
+            {
+                if (p.x < 2 || p.y < 0 || p.x >= 40 || p.y >= 30)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private Point[] Clone()
+        {
+            var newPoints = new Point[LENGTH];
+
+            for (int i = 0; i < LENGTH; i++)
+            {
+                newPoints[i] = new Point(points[i]);
+            }
+
+            return newPoints;
+        }
+
+        public void Move(Point[] pList, Movement dir)
+        {
+            foreach (var p in pList)
             {
                 p.Move(dir);
             }
-            
-            Draw();
         }
+
+        //public void Move(Movement dir)
+        //{
+        //    Hide();
+
+        //    foreach (Point p in points)
+        //    {
+        //        p.Move(dir);
+        //    }
+            
+        //    Draw();
+        //}
 
         internal void Hide()
         {
@@ -41,21 +88,15 @@ namespace TheTetris
 
         internal void Fall()
         {
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Thread.Sleep(200);
                 Hide();
-                Move(Movement.DOWN);
+                TryMove(Movement.DOWN);
                 Draw();
             }
 
             Hide();
-
-            //i.Draw();
-            //Thread.Sleep(200);
-            //i.Hide();
-            //i.Move(Movement.DOWN);
-            //i.Draw();
         }
     }
 }
