@@ -39,5 +39,11 @@ namespace TheTetris
                     break;
             }
         }
+
+        internal void Hide()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
+        }
     }
 }

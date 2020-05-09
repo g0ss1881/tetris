@@ -13,5 +13,10 @@ namespace TheTetris
             points[2] = new Point(x, y + 2, sym);
             points[3] = new Point(x - 1, y + 2, sym);
         }
+
+        public override void Rotate()
+        {
+
+        }
     }
 }

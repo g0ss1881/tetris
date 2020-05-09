@@ -11,12 +11,63 @@ namespace TheTetris
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
 
-            Figure[] figure = new Figure[1];
-            figure[0] = new Figure_Q(2, 2, '0');
-            figure[0].Move(Movement.RIGHT);
+            //Figure[] figures = new Figure[2];
+            //figures[0] = new Figure_Q(2, 5, '0');
+            //figures[0].Draw();
+            //Thread.Sleep(500);
+            //figures[0].Hide();
+            //figures[0].Rotate();
+            //figures[1].Draw();
+
+            //figures[1] = new Figure_I(8, 5, '0');
+            //figures[1].Draw();
+            //Thread.Sleep(500);
+            //figures[1].Hide();
+            //figures[1].Rotate();
+            //figures[1].Draw();
+
+            while (true)
+            {
+                GenerateFigure newfigure = new GenerateFigure(20, 0, '0');
+                Figure fig = newfigure.GetNewFigure();
+                fig.Draw();
+                fig.Fall();
+            }
 
 
-            Console.ReadLine();
+
+            //figures[2] = new Figure_T(10, 2, '0');
+            //figures[2].Draw();
+            //Thread.Sleep(500);
+            //figures[2].Hide();
+            //figures[2].Rotate();
+
+            //figures[3] = new Figure_J(15, 10, '0');
+            //figures[3].Draw();
+            //Thread.Sleep(500);
+            //figures[3].Hide();
+            //figures[3].Rotate();
+
+            //figures[4] = new Figure_L(20, 5, '0');
+            //figures[4].Draw();
+            //Thread.Sleep(500);
+            //figures[4].Hide();
+            //figures[4].Rotate();
+
+            //figures[5] = new Figure_S(25, 20, '0');
+            //figures[5].Draw();
+            //Thread.Sleep(500);
+            //figures[5].Hide();
+            //figures[5].Rotate();
+
+            //figures[6] = new Figure_Z(22, 25, '0');
+            //figures[6].Draw();
+            //Thread.Sleep(500);
+            //figures[6].Hide();
+            //figures[6].Rotate();
+
+
+            //Console.ReadLine();
         }
     }
 }
