@@ -24,6 +24,12 @@ namespace TheTetris
             Draw();
         }
 
+        internal void Hide()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(" ");
+        }
+
         public void Move(Movement dir)
         {
             switch (dir)
@@ -38,12 +44,6 @@ namespace TheTetris
                     y += 1;
                     break;
             }
-        }
-
-        internal void Hide()
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(" ");
         }
     }
 }

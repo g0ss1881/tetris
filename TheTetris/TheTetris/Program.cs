@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
@@ -6,10 +7,56 @@ namespace TheTetris
 {
     class Program
     {
+        private static void HandleKey(Figure figure, ConsoleKeyInfo key)
+        {
+            figure.Hide();
+
+            switch (key.Key)
+            {
+                case ConsoleKey.LeftArrow:
+                    figure.Move(Movement.LEFT);
+                    break;
+                case ConsoleKey.RightArrow:
+                    figure.Move(Movement.RIGHT);
+                    break;
+                case ConsoleKey.DownArrow:
+                    figure.Move(Movement.DOWN);
+                    break;
+                    //case ConsoleKey.UpArrow:
+                    //break;
+            }
+
+            figure.Draw();
+        }
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(40, 30);
             Console.SetBufferSize(40, 30);
+
+            
+
+            Figure fig = new Figure_I(20, 0, '0');
+
+            while (true)
+            {
+                var key = Console.ReadKey();
+
+                HandleKey(fig, key);
+            }
+
+
+            //GenerateFigure newfigure = new GenerateFigure(20, 0, '0');
+            //Figure fig;
+
+            //while (true)
+            //{
+
+            //}
+
+
+
+            // Проверка всех фигур на работоспособность метода Rotate
 
             //Figure[] figures = new Figure[2];
             //figures[0] = new Figure_Q(2, 5, '0');
@@ -25,16 +72,6 @@ namespace TheTetris
             //figures[1].Hide();
             //figures[1].Rotate();
             //figures[1].Draw();
-
-            while (true)
-            {
-                GenerateFigure newfigure = new GenerateFigure(20, 0, '0');
-                Figure fig = newfigure.GetNewFigure();
-                fig.Draw();
-                fig.Fall();
-            }
-
-
 
             //figures[2] = new Figure_T(10, 2, '0');
             //figures[2].Draw();
@@ -65,7 +102,6 @@ namespace TheTetris
             //Thread.Sleep(500);
             //figures[6].Hide();
             //figures[6].Rotate();
-
 
             //Console.ReadLine();
         }
