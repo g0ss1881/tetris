@@ -19,10 +19,14 @@ namespace TheTetris
 
         public void Move(Movement dir)
         {
+            Hide();
+
             foreach (Point p in points)
             {
                 p.Move(dir);
             }
+            
+            Draw();
         }
 
         internal void Hide()

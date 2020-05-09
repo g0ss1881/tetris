@@ -9,8 +9,6 @@ namespace TheTetris
     {
         private static void HandleKey(Figure figure, ConsoleKeyInfo key)
         {
-            figure.Hide();
-
             switch (key.Key)
             {
                 case ConsoleKey.LeftArrow:
@@ -25,8 +23,6 @@ namespace TheTetris
                     //case ConsoleKey.UpArrow:
                     //break;
             }
-
-            figure.Draw();
         }
 
         static void Main(string[] args)
